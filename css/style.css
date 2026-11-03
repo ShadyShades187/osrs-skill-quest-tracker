@@ -24,8 +24,8 @@ header p {
 
 
 main {
-    width: 90%;
-    max-width: 1000px;
+    width: 94%;
+    max-width: 1100px;
     margin: 40px auto;
 }
 
@@ -54,20 +54,87 @@ main {
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    gap: 15px;
+    align-items: start;
 }
 
 #skills-list li {
     background-color: blanchedalmond;
     border: 1px solid #8b7340;
     border-radius: 6px;
-    padding: 15px;
-    text-align: center;
+    padding: 12px;
     color: #403020;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
 }
 
 #skills-list li:hover {
     background-color: #f0d5ab;
+}
+
+#skills-list h3 {
+    grid-column: 1 / 4;
+    margin: 0 0 5px 0;
+    color: #403020;
+    text-align: center;
+}
+
+
+.skill-field {
+    min-width: 0;
+    text-align: center;
+}
+
+.skill-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    min-height: 34px;
+}
+
+.skill-field input {
+    width: 100%;
+    padding: 7px 5px;
+    border: 1px solid #8b7340;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-family: Georgia, serif;
+    text-align: center;
+    appearance: textfield;
+}
+
+.skill-field input::-webkit-inner-spin-button,
+.skill-field input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+.skills-section .xp-needed {
+    grid-column: 1 / 4;
+    text-align: center;
+    margin: 8px 0 0;
+    color: #403020;
+}
+
+
+#save-button {
+    display: block;
+    margin: 25px auto 0;
+    padding: 12px 30px;
+    background-color: #a88b4a;
+    color: #1c1a16;
+    border: 2px solid #e2c878;
+    border-radius: 10px;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#save-button:hover {
+    background-color: #e2c878;
 }
 
 

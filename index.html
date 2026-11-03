@@ -27,31 +27,514 @@
                 <p>View and update your OSRS skill progress.</p>
 
                 <ul id="skills-list">
-                    <li>Attack</li>
-                    <li>Hitpoints</li>
-                    <li>Mining</li>
-                    <li>Strength</li>
-                    <li>Agility</li>
-                    <li>Smithing</li>
-                    <li>Defence</li>
-                    <li>Herblore</li>
-                    <li>Fishing</li>
-                    <li>Ranged</li>
-                    <li>Thieving</li>
-                    <li>Cooking</li>
-                    <li>Prayer</li>
-                    <li>Crafting</li>
-                    <li>Firemaking</li>
-                    <li>Magic</li>
-                    <li>Fletching</li>
-                    <li>Woodcutting</li>
-                    <li>Runecraft</li>
-                    <li>Slayer</li>
-                    <li>Farming</li>
-                    <li>Construction</li>
-                    <li>Hunter</li>
-                    <li>Sailing</li>
+
+                    <li>
+                        <h3>Attack</h3>
+
+                        <div class="skill-field">
+                            <label for="attack-level">Current Level</label>
+                            <input type="number" id="attack-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="attack-xp">Current XP</label>
+                            <input type="number" id="attack-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="attack-target">Target Level</label>
+                            <input type="number" id="attack-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="attack-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Hitpoints</h3>
+
+                        <div class="skill-field">
+                            <label for="hitpoints-level">Current Level</label>
+                            <input type="number" id="hitpoints-level" min="1" max="99" value="10">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="hitpoints-xp">Current XP</label>
+                            <input type="number" id="hitpoints-xp" min="0" value="1154">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="hitpoints-target">Target Level</label>
+                            <input type="number" id="hitpoints-target" min="1" max="99" value="10">
+                        </div>
+
+                        <p class="xp-needed" id="hitpoints-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Mining</h3>
+
+                        <div class="skill-field">
+                            <label for="mining-level">Current Level</label>
+                            <input type="number" id="mining-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="mining-xp">Current XP</label>
+                            <input type="number" id="mining-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="mining-target">Target Level</label>
+                            <input type="number" id="mining-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="mining-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Strength</h3>
+
+                        <div class="skill-field">
+                            <label for="strength-level">Current Level</label>
+                            <input type="number" id="strength-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="strength-xp">Current XP</label>
+                            <input type="number" id="strength-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="strength-target">Target Level</label>
+                            <input type="number" id="strength-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="strength-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Agility</h3>
+
+                        <div class="skill-field">
+                            <label for="agility-level">Current Level</label>
+                            <input type="number" id="agility-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="agility-xp">Current XP</label>
+                            <input type="number" id="agility-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="agility-target">Target Level</label>
+                            <input type="number" id="agility-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="agility-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Smithing</h3>
+
+                        <div class="skill-field">
+                            <label for="smithing-level">Current Level</label>
+                            <input type="number" id="smithing-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="smithing-xp">Current XP</label>
+                            <input type="number" id="smithing-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="smithing-target">Target Level</label>
+                            <input type="number" id="smithing-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="smithing-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Defence</h3>
+
+                        <div class="skill-field">
+                            <label for="defence-level">Current Level</label>
+                            <input type="number" id="defence-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="defence-xp">Current XP</label>
+                            <input type="number" id="defence-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="defence-target">Target Level</label>
+                            <input type="number" id="defence-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="defence-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Herblore</h3>
+
+                        <div class="skill-field">
+                            <label for="herblore-level">Current Level</label>
+                            <input type="number" id="herblore-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="herblore-xp">Current XP</label>
+                            <input type="number" id="herblore-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="herblore-target">Target Level</label>
+                            <input type="number" id="herblore-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="herblore-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Fishing</h3>
+
+                        <div class="skill-field">
+                            <label for="fishing-level">Current Level</label>
+                            <input type="number" id="fishing-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="fishing-xp">Current XP</label>
+                            <input type="number" id="fishing-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="fishing-target">Target Level</label>
+                            <input type="number" id="fishing-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="fishing-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Ranged</h3>
+
+                        <div class="skill-field">
+                            <label for="ranged-level">Current Level</label>
+                            <input type="number" id="ranged-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="ranged-xp">Current XP</label>
+                            <input type="number" id="ranged-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="ranged-target">Target Level</label>
+                            <input type="number" id="ranged-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="ranged-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Thieving</h3>
+
+                        <div class="skill-field">
+                            <label for="thieving-level">Current Level</label>
+                            <input type="number" id="thieving-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="thieving-xp">Current XP</label>
+                            <input type="number" id="thieving-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="thieving-target">Target Level</label>
+                            <input type="number" id="thieving-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="thieving-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Cooking</h3>
+
+                        <div class="skill-field">
+                            <label for="cooking-level">Current Level</label>
+                            <input type="number" id="cooking-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="cooking-xp">Current XP</label>
+                            <input type="number" id="cooking-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="cooking-target">Target Level</label>
+                            <input type="number" id="cooking-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="cooking-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Prayer</h3>
+
+                        <div class="skill-field">
+                            <label for="prayer-level">Current Level</label>
+                            <input type="number" id="prayer-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="prayer-xp">Current XP</label>
+                            <input type="number" id="prayer-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="prayer-target">Target Level</label>
+                            <input type="number" id="prayer-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="prayer-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Crafting</h3>
+
+                        <div class="skill-field">
+                            <label for="crafting-level">Current Level</label>
+                            <input type="number" id="crafting-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="crafting-xp">Current XP</label>
+                            <input type="number" id="crafting-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="crafting-target">Target Level</label>
+                            <input type="number" id="crafting-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="crafting-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Firemaking</h3>
+
+                        <div class="skill-field">
+                            <label for="firemaking-level">Current Level</label>
+                            <input type="number" id="firemaking-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="firemaking-xp">Current XP</label>
+                            <input type="number" id="firemaking-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="firemaking-target">Target Level</label>
+                            <input type="number" id="firemaking-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="firemaking-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Magic</h3>
+
+                        <div class="skill-field">
+                            <label for="magic-level">Current Level</label>
+                            <input type="number" id="magic-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="magic-xp">Current XP</label>
+                            <input type="number" id="magic-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="magic-target">Target Level</label>
+                            <input type="number" id="magic-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="magic-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Fletching</h3>
+
+                        <div class="skill-field">
+                            <label for="fletching-level">Current Level</label>
+                            <input type="number" id="fletching-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="fletching-xp">Current XP</label>
+                            <input type="number" id="fletching-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="fletching-target">Target Level</label>
+                            <input type="number" id="fletching-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="fletching-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Woodcutting</h3>
+
+                        <div class="skill-field">
+                            <label for="woodcutting-level">Current Level</label>
+                            <input type="number" id="woodcutting-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="woodcutting-xp">Current XP</label>
+                            <input type="number" id="woodcutting-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="woodcutting-target">Target Level</label>
+                            <input type="number" id="woodcutting-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="woodcutting-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Runecraft</h3>
+
+                        <div class="skill-field">
+                            <label for="runecraft-level">Current Level</label>
+                            <input type="number" id="runecraft-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="runecraft-xp">Current XP</label>
+                            <input type="number" id="runecraft-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="runecraft-target">Target Level</label>
+                            <input type="number" id="runecraft-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="runecraft-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Slayer</h3>
+
+                        <div class="skill-field">
+                            <label for="slayer-level">Current Level</label>
+                            <input type="number" id="slayer-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="slayer-xp">Current XP</label>
+                            <input type="number" id="slayer-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="slayer-target">Target Level</label>
+                            <input type="number" id="slayer-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="slayer-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Farming</h3>
+
+                        <div class="skill-field">
+                            <label for="farming-level">Current Level</label>
+                            <input type="number" id="farming-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="farming-xp">Current XP</label>
+                            <input type="number" id="farming-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="farming-target">Target Level</label>
+                            <input type="number" id="farming-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="farming-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Construction</h3>
+
+                        <div class="skill-field">
+                            <label for="construction-level">Current Level</label>
+                            <input type="number" id="construction-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="construction-xp">Current XP</label>
+                            <input type="number" id="construction-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="construction-target">Target Level</label>
+                            <input type="number" id="construction-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="construction-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Hunter</h3>
+
+                        <div class="skill-field">
+                            <label for="hunter-level">Current Level</label>
+                            <input type="number" id="hunter-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="hunter-xp">Current XP</label>
+                            <input type="number" id="hunter-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="hunter-target">Target Level</label>
+                            <input type="number" id="hunter-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="hunter-xp-needed"></p>
+                    </li>
+
+                    <li>
+                        <h3>Sailing</h3>
+
+                        <div class="skill-field">
+                            <label for="sailing-level">Current Level</label>
+                            <input type="number" id="sailing-level" min="1" max="99" value="1">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="sailing-xp">Current XP</label>
+                            <input type="number" id="sailing-xp" min="0" value="0">
+                        </div>
+
+                        <div class="skill-field">
+                            <label for="sailing-target">Target Level</label>
+                            <input type="number" id="sailing-target" min="1" max="99" value="1">
+                        </div>
+
+                        <p class="xp-needed" id="sailing-xp-needed"></p>
+                    </li>
+
                 </ul>
+
+                <button id="save-button">Save Progress</button>
 
             </section>
 
@@ -60,6 +543,8 @@
         <footer>
             <p>Nathaniel Rodriguez CS 319</p>
         </footer>
+
+        <script src="Js/script.js"></script>
 
     </body>
 
