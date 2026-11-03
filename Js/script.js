@@ -1,65 +1,29 @@
-let levelInputs = document.querySelectorAll('input[id$="-level"]');
-
-for (let i = 0; i < levelInputs.length; i++) {
-
-    levelInputs[i].addEventListener("change", function() {
-
-        let level = Number(this.value);
-
-        if (this.value === "" || !Number.isInteger(level) || level < 1 || level > 99) {
-            alert("Skill levels must be between 1 and 99.");
-            this.value = 1;
-        }
-
-        let skill = this.id.replace("-level", "");
-        let targetInput = document.getElementById(skill + "-target");
-
-        if (Number(targetInput.value) < Number(this.value)) {
-            targetInput.value = this.value;
-        }
-
-    });
-
-}
-
-
-let xpInputs = document.querySelectorAll('input[id$="-xp"]');
-
-for (let i = 0; i < xpInputs.length; i++) {
-
-    xpInputs[i].addEventListener("change", function() {
-
-        let xp = Number(this.value);
-
-        if (this.value === "" || !Number.isInteger(xp) || xp < 0) {
-            alert("XP must be a positive whole number or zero.");
-            this.value = 0;
-        }
-
-    });
-
-}
-
-
-let targetInputs = document.querySelectorAll('input[id$="-target"]');
-
-for (let i = 0; i < targetInputs.length; i++) {
-
-    targetInputs[i].addEventListener("change", function() {
-
-        let target = Number(this.value);
-
-        let skill = this.id.replace("-target", "");
-        let currentLevel = Number(document.getElementById(skill + "-level").value);
-
-        if (this.value === "" || !Number.isInteger(target) || target < currentLevel || target > 99) {
-            alert("Target levels must be between your current level and 99.");
-            this.value = currentLevel;
-        }
-
-    });
-
-}
+let skills = [
+    "attack",
+    "hitpoints",
+    "mining",
+    "strength",
+    "agility",
+    "smithing",
+    "defence",
+    "herblore",
+    "fishing",
+    "ranged",
+    "thieving",
+    "cooking",
+    "prayer",
+    "crafting",
+    "firemaking",
+    "magic",
+    "fletching",
+    "woodcutting",
+    "runecraft",
+    "slayer",
+    "farming",
+    "construction",
+    "hunter",
+    "sailing"
+];
 
 
 let xpTable = [];
@@ -72,6 +36,70 @@ for (let level = 1; level < 99; level++) {
     totalXP += Math.floor(level + 300 * Math.pow(2, level / 7));
 
     xpTable[level + 1] = Math.floor(totalXP / 4);
+
+}
+
+
+function checkLevel(skill) {
+
+    let levelInput = document.getElementById(skill + "-level");
+    let targetInput = document.getElementById(skill + "-target");
+
+    let level = Number(levelInput.value);
+
+    if (levelInput.value === "" || !Number.isInteger(level) || level < 1 || level > 99) {
+
+        alert("Skill levels must be between 1 and 99.");
+
+        levelInput.value = 1;
+
+    }
+
+    if (Number(targetInput.value) < Number(levelInput.value)) {
+
+        targetInput.value = levelInput.value;
+
+    }
+
+    calculateSkillXP(skill);
+
+}
+
+
+function checkXP(skill) {
+
+    let xpInput = document.getElementById(skill + "-xp");
+
+    let xp = Number(xpInput.value);
+
+    if (xpInput.value === "" || !Number.isInteger(xp) || xp < 0) {
+
+        alert("XP must be a positive whole number or zero.");
+
+        xpInput.value = 0;
+
+    }
+
+    calculateSkillXP(skill);
+
+}
+
+
+function checkTarget(skill) {
+
+    let levelInput = document.getElementById(skill + "-level");
+    let targetInput = document.getElementById(skill + "-target");
+
+    let level = Number(levelInput.value);
+    let target = Number(targetInput.value);
+
+    if (targetInput.value === "" || !Number.isInteger(target) || target < level || target > 99) {
+
+        alert("Target levels must be between your current level and 99.");
+
+        targetInput.value = level;
+
+    }
 
 }
 
@@ -94,9 +122,13 @@ function calculateSkillXP(skill) {
     } else if (level === 99) {
 
         if (xp >= xpTable[99]) {
+
             xpDisplay.textContent = "Maximum level reached!";
+
         } else {
+
             xpDisplay.textContent = "Current XP does not match the skill level.";
+
         }
 
     } else if (xp < xpTable[level] || xp >= xpTable[level + 1]) {
@@ -116,9 +148,9 @@ function calculateSkillXP(skill) {
 
 function saveProgress() {
 
-    for (let i = 0; i < levelInputs.length; i++) {
+    for (let i = 0; i < skills.length; i++) {
 
-        let skill = levelInputs[i].id.replace("-level", "");
+        let skill = skills[i];
 
         let levelInput = document.getElementById(skill + "-level");
         let xpInput = document.getElementById(skill + "-xp");
@@ -133,6 +165,7 @@ function saveProgress() {
             level < 1 || level > 99 || xp < 0 || target < level || target > 99) {
 
             alert("Please check the skill information for " + skill + ".");
+
             return;
 
         }
@@ -140,6 +173,7 @@ function saveProgress() {
         if (xp < xpTable[level] || (level < 99 && xp >= xpTable[level + 1])) {
 
             alert("Current XP does not match the skill level for " + skill + ".");
+
             return;
 
         }
@@ -147,17 +181,17 @@ function saveProgress() {
     }
 
 
-    for (let i = 0; i < levelInputs.length; i++) {
+    for (let i = 0; i < skills.length; i++) {
 
-        let skill = levelInputs[i].id.replace("-level", "");
+        let skill = skills[i];
 
-        let levelInput = document.getElementById(skill + "-level");
-        let xpInput = document.getElementById(skill + "-xp");
-        let targetInput = document.getElementById(skill + "-target");
+        let level = document.getElementById(skill + "-level").value;
+        let xp = document.getElementById(skill + "-xp").value;
+        let target = document.getElementById(skill + "-target").value;
 
-        localStorage.setItem(skill + "-level", levelInput.value);
-        localStorage.setItem(skill + "-xp", xpInput.value);
-        localStorage.setItem(skill + "-target", targetInput.value);
+        localStorage.setItem(skill + "-level", level);
+        localStorage.setItem(skill + "-xp", xp);
+        localStorage.setItem(skill + "-target", target);
 
     }
 
@@ -168,9 +202,9 @@ function saveProgress() {
 
 function loadProgress() {
 
-    for (let i = 0; i < levelInputs.length; i++) {
+    for (let i = 0; i < skills.length; i++) {
 
-        let skill = levelInputs[i].id.replace("-level", "");
+        let skill = skills[i];
 
         let level = localStorage.getItem(skill + "-level");
         let xp = localStorage.getItem(skill + "-xp");
@@ -189,25 +223,31 @@ function loadProgress() {
 }
 
 
-document.getElementById("save-button").addEventListener("click", saveProgress);
+for (let i = 0; i < skills.length; i++) {
+
+    let skill = skills[i];
+
+    document.getElementById(skill + "-level").onchange = function() {
+        checkLevel(skill);
+    };
+
+    document.getElementById(skill + "-xp").onchange = function() {
+        checkXP(skill);
+    };
+
+    document.getElementById(skill + "-target").onchange = function() {
+        checkTarget(skill);
+    };
+
+}
+
+
+document.getElementById("save-button").onclick = saveProgress;
 
 loadProgress();
 
+for (let i = 0; i < skills.length; i++) {
 
-for (let i = 0; i < levelInputs.length; i++) {
-
-    let skill = levelInputs[i].id.replace("-level", "");
-
-    let xpInput = document.getElementById(skill + "-xp");
-
-    levelInputs[i].addEventListener("change", function() {
-        calculateSkillXP(skill);
-    });
-
-    xpInput.addEventListener("change", function() {
-        calculateSkillXP(skill);
-    });
-
-    calculateSkillXP(skill);
+    calculateSkillXP(skills[i]);
 
 }
