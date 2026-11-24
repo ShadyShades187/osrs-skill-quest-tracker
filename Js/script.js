@@ -135,6 +135,8 @@ function checkTarget(skill) {
 
     }
 
+    calculateSkillXP(skill);
+
 }
 
 
@@ -142,18 +144,23 @@ function calculateSkillXP(skill) {
 
     let levelInput = document.getElementById(skill + "-level");
     let xpInput = document.getElementById(skill + "-xp");
+    let targetInput = document.getElementById(skill + "-target");
     let xpDisplay = document.getElementById(skill + "-xp-needed");
 
     let level = Number(levelInput.value);
     let xp = Number(xpInput.value);
+    let target = Number(targetInput.value);
 
     if (levelInput.value === "" || xpInput.value === "" ||
         !Number.isInteger(level) || !Number.isInteger(xp) ||
         level < 1 || level > 99 || xp < 0) {
 
         xpDisplay.textContent = "Enter valid skill information.";
+        return;
 
-    } else if (level === 99) {
+    }
+
+    if (level === 99) {
 
         if (xp >= xpTable[99]) {
 
@@ -162,12 +169,14 @@ function calculateSkillXP(skill) {
         } else {
 
             xpDisplay.textContent = "Current XP does not match the skill level.";
+            return;
 
         }
 
     } else if (xp < xpTable[level] || xp >= xpTable[level + 1]) {
 
         xpDisplay.textContent = "Current XP does not match the skill level.";
+        return;
 
     } else {
 
@@ -176,6 +185,18 @@ function calculateSkillXP(skill) {
         xpDisplay.textContent = "XP to next level: " + xpNeeded.toLocaleString();
 
     }
+
+    if (targetInput.value === "" || !Number.isInteger(target) ||
+        target < level || target > 99) {
+
+        xpDisplay.innerHTML += "<br>Enter a valid target level.";
+        return;
+
+    }
+
+    let targetXPNeeded = calculateXPToTarget(xp, target);
+
+    xpDisplay.innerHTML += "<br>XP to target level: " + targetXPNeeded.toLocaleString();
 
 }
 
