@@ -32,10 +32,43 @@ let totalXP = 0;
 xpTable[1] = 0;
 
 for (let level = 1; level < 99; level++) {
-
     totalXP += Math.floor(level + 300 * Math.pow(2, level / 7));
 
     xpTable[level + 1] = Math.floor(totalXP / 4);
+}
+
+
+function getSkillLevel(skill) {
+    return Number(document.getElementById(skill + "-level").value);
+}
+
+
+function sortSkills() {
+
+    let order = document.getElementById("sort-order").value;
+    let skillData = [];
+
+    for (let i = 0; i < skills.length; i++) {
+
+        skillData.push({
+            name: skills[i],
+            level: getSkillLevel(skills[i]),
+            position: i
+        });
+
+    }
+
+    let sortedSkills = sortSkillData(skillData, order);
+    let skillsList = document.getElementById("skills-list");
+
+    for (let i = 0; i < sortedSkills.length; i++) {
+
+        let skillInput = document.getElementById(sortedSkills[i].name + "-level");
+        let skillCard = skillInput.closest("li");
+
+        skillsList.appendChild(skillCard);
+
+    }
 
 }
 
@@ -62,6 +95,7 @@ function checkLevel(skill) {
     }
 
     calculateSkillXP(skill);
+    sortSkills();
 
 }
 
@@ -243,6 +277,7 @@ for (let i = 0; i < skills.length; i++) {
 
 
 document.getElementById("save-button").onclick = saveProgress;
+document.getElementById("sort-order").onchange = sortSkills;
 
 loadProgress();
 
