@@ -47,6 +47,24 @@ main {
 }
 
 
+.sort-controls {
+    margin-top: 20px;
+}
+
+.sort-controls label {
+    margin-right: 10px;
+}
+
+.sort-controls select {
+    background-color: blanchedalmond;
+    color: #403020;
+    padding: 8px;
+    border: 1px solid #8b7340;
+    border-radius: 6px;
+    font-family: Georgia, serif;
+}
+
+
 #skills-list {
     list-style: none;
     padding: 0;
