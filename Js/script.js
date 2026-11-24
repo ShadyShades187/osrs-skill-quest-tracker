@@ -43,35 +43,33 @@ function getSkillLevel(skill) {
 }
 
 
-let sortMethods = {
-    default: function(first, second) {
-        return skills.indexOf(first) - skills.indexOf(second);
-    },
-
-    lowest: function(first, second) {
-        return getSkillLevel(first) - getSkillLevel(second);
-    },
-
-    highest: function(first, second) {
-        return getSkillLevel(second) - getSkillLevel(first);
-    }
-};
-
-
 function sortSkills() {
+
     let order = document.getElementById("sort-order").value;
-    let sortedSkills = skills.slice();
+    let skillData = [];
 
-    sortedSkills.sort(sortMethods[order]);
+    for (let i = 0; i < skills.length; i++) {
 
+        skillData.push({
+            name: skills[i],
+            level: getSkillLevel(skills[i]),
+            position: i
+        });
+
+    }
+
+    let sortedSkills = sortSkillData(skillData, order);
     let skillsList = document.getElementById("skills-list");
 
     for (let i = 0; i < sortedSkills.length; i++) {
-        let skillInput = document.getElementById(sortedSkills[i] + "-level");
+
+        let skillInput = document.getElementById(sortedSkills[i].name + "-level");
         let skillCard = skillInput.closest("li");
 
         skillsList.appendChild(skillCard);
+
     }
+
 }
 
 

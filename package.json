@@ -1,0 +1,24 @@
+{
+  "name": "osrs-skill-quest-tracker",
+  "version": "1.0.0",
+  "description": "Created by Nathaniel Rodriguez for CS 319 - Fundamentals of Software Engineering.",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShadyShades187/osrs-skill-quest-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ShadyShades187/osrs-skill-quest-tracker/issues"
+  },
+  "homepage": "https://github.com/ShadyShades187/osrs-skill-quest-tracker#readme",
+  "devDependencies": {
+    "vitest": "^5.1.1"
+  }
+}
